@@ -1,4 +1,4 @@
-Goal - Quickly develop a simple HTML page with SASS that gets compiled into a high performing page with optimized CSS, JS, Images and HTML.
+**Goal** - Rapidly develop simple HTML pages that can be used as highly optimized live sites.
 
 ## Features
 - [HTML Head](https://htmlhead.dev/) with `head.html` partial
@@ -20,7 +20,6 @@ Build & Production
 `gulp build`
 
 
-
 ## File structure
 
 ### Source
@@ -39,4 +38,6 @@ Build & Production
 
 - Add more javascript options (right now just write inline JS in the footer)
 - Responsive images, automatically create `<picture>` elements from a simple line
--
+- Pardot
+    - implement an automated way to add pardot editable fields
+    - pardot build command to not use .webp images
