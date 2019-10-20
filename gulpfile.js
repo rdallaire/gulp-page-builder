@@ -19,6 +19,10 @@ const paths = {
       src: 'src/scss/*.scss',
       dest: 'site/css/'
     },
+    js : {
+        src: 'src/js/*.js',
+        dest: 'site/js/'
+    },
     img: {
         src: 'src/img/**/*',
         dest: 'site/img/'
@@ -111,6 +115,11 @@ function htmlWatch() {
     .pipe(gulp.dest(paths.html.dest));
 }
 
+function js() {
+    return gulp.src(paths.js.src)
+    .pipe(gulp.dest(paths.js.dest));
+}
+
 // Watch files
 function watchFiles() {
     gulp.watch(paths.styles.src, stylesWatch);
@@ -121,8 +130,8 @@ function watchFiles() {
     gulp.watch(paths.img.src, imgWebp);
   }
 
-var build = gulp.series(clean, styles, img, imgWebp, html);
-var preWatch = gulp.series(clean, stylesWatch, img, imgWebp, htmlWatch);
+var build = gulp.series(clean, styles, js, img, imgWebp, html);
+var preWatch = gulp.series(clean, stylesWatch, img, js, imgWebp, htmlWatch);
 var watchActual = gulp.parallel(watchFiles, browserSync);
 var watch = gulp.series(preWatch, watchActual);
 
