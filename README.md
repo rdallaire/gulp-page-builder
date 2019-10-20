@@ -1,4 +1,4 @@
-Goal - Quickly develop a simple HTML page with SASS that gets compiled into a high performing page.
+Goal - Quickly develop a simple HTML page with SASS that gets compiled into a high performing page with optimized CSS, JS, Images and HTML.
 
 ## Features
 - [HTML Head](https://htmlhead.dev/) with head.html partial
@@ -12,10 +12,13 @@ Install
 `npm install`
 
 Development
-`gulp watch`
+- `gulp watch`
+- Edit `index.html` edit `.scss` files
 
 Build & Production
 `gulp build`
+
+
 
 ## File structure
 
