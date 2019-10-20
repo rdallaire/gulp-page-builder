@@ -1,4 +1,4 @@
-**Goal** - Rapidly develop simple HTML pages that can be used as highly optimized live sites.
+**Goal** - Rapidly develop simple HTML pages with best practices that can be used as optimized live sites.
 
 ## Features
 - Gulp Watch + Browsersync for live development
@@ -40,8 +40,9 @@ Build & Production
 
 - Add more javascript options (right now just write inline JS in the footer)
 - Responsive images, automatically create `<picture>` elements from a simple line
-- Make sure unused CSS gets removed.
-- Default SASS variable names for common uses.
+- Make sure unused CSS gets removed
+- Default SASS variable names for common uses
 - Pardot
     - implement an automated way to add pardot editable fields
     - pardot build command to not use .webp images
+    - placeholder form include that gets excluded on production build

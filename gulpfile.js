@@ -14,7 +14,7 @@ const gulp = require('gulp'),
 
 sass.compiler = require('node-sass');
 
-var paths = {
+const paths = {
     styles: {
       src: 'src/scss/*.scss',
       dest: 'site/css/'
