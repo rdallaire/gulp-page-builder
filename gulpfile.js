@@ -1,15 +1,16 @@
-var gulp = require('gulp');
-var del = require('del');
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var browsersync = require('browser-sync').create();
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
-var inlinesource = require('gulp-inline-source');
-var htmlmin = require('gulp-htmlmin');
-// var image = require('gulp-image');
-var webp = require('gulp-webp');
-var sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp'),
+    del = require('del'),
+    sass = require('gulp-sass'),
+    postcss = require('gulp-postcss'),
+    browsersync = require('browser-sync').create(),
+    autoprefixer = require('autoprefixer'),
+    cssnano = require('cssnano'),
+    inlinesource = require('gulp-inline-source'),
+    htmlmin = require('gulp-htmlmin'),
+    // image = require('gulp-image'),
+    webp = require('gulp-webp'),
+    sourcemaps = require('gulp-sourcemaps'),
+    fileinclude = require('gulp-file-include');
 
 sass.compiler = require('node-sass');
 
@@ -24,10 +25,12 @@ var paths = {
     },
     html: {
         src: 'src/*.html',
+        srcWatch: 'src/**/*.html',
         dest: 'site/'
     }
   };
 
+// postcss plugins
 var pcssplugins = [
     autoprefixer(),
     cssnano()
@@ -37,7 +40,7 @@ var pcssplugins = [
 function browserSync(done) {
     browsersync.init({
         server: {
-            baseDir: "./site/"
+            baseDir: './site/'
         },
         port: 3000
     });
@@ -86,6 +89,10 @@ function imgWebp() {
 
 function html() {
     return gulp.src(paths.html.src)
+    .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+    }))
     .pipe(gulp.dest(paths.html.dest))
     .pipe(inlinesource())
     .pipe(htmlmin({
@@ -97,13 +104,17 @@ function html() {
 
 function htmlWatch() {
     return gulp.src(paths.html.src)
+    .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+      }))
     .pipe(gulp.dest(paths.html.dest));
 }
 
 // Watch files
 function watchFiles() {
     gulp.watch(paths.styles.src, stylesWatch);
-    gulp.watch(paths.html.src,
+    gulp.watch(paths.html.srcWatch,
       gulp.series(htmlWatch, browserSyncReload)
     );
     gulp.watch(paths.img.src, img);
