@@ -117,18 +117,20 @@ function htmlWatch() {
 
 function js() {
     return gulp.src(paths.js.src)
-    .pipe(gulp.dest(paths.js.dest));
+    .pipe(gulp.dest(paths.js.dest))
+    .pipe(browsersync.stream());
 }
 
 // Watch files
 function watchFiles() {
     gulp.watch(paths.styles.src, stylesWatch);
+    gulp.watch(paths.js.src, js);
     gulp.watch(paths.html.srcWatch,
-      gulp.series(htmlWatch, browserSyncReload)
+        gulp.series(htmlWatch, browserSyncReload)
     );
     gulp.watch(paths.img.src, img);
     gulp.watch(paths.img.src, imgWebp);
-  }
+}
 
 var build = gulp.series(clean, styles, js, img, imgWebp, html);
 var preWatch = gulp.series(clean, stylesWatch, img, js, imgWebp, htmlWatch);
