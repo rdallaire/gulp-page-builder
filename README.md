@@ -42,6 +42,7 @@ Build & Production
 - Responsive images, automatically create `<picture>` elements from a simple line
 - Make sure unused CSS gets removed
 - Default SASS variable names for common uses
+- Remove unused CSS. Allow to add a bunch of extras and pre-defined components
 - Pardot
     - implement an automated way to add pardot editable fields
     - pardot build command to not use .webp images
