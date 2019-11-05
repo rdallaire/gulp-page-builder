@@ -47,3 +47,4 @@ Build & Production
     - implement an automated way to add pardot editable fields
     - pardot build command to not use .webp images
     - placeholder form include that gets excluded on production build
+    - not minify HTML or CSS, so that it's readable to others editing page?
