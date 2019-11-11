@@ -7,6 +7,8 @@
 - SASS Compiling
 - Minifying HTML and CSS and inlining CSS on `gulp`. Removes comments and whitespace in HTML.
 - Create .webp images from image assets
+- Pardot
+    - Added `pardot-form.html` that gets included on `gulp watch` where `%%content%%` is located on the landing page for mockup reasons. On `gulp build` the `%%content%%` doesn't get replaced.
 
 ## Get started
 

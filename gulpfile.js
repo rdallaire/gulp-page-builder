@@ -10,6 +10,7 @@ const gulp = require('gulp'),
     // image = require('gulp-image'),
     webp = require('gulp-webp'),
     sourcemaps = require('gulp-sourcemaps'),
+    replace = require('gulp-replace'),
     fileinclude = require('gulp-file-include');
 
 sass.compiler = require('node-sass');
@@ -108,6 +109,7 @@ function html() {
 
 function htmlWatch() {
     return gulp.src(paths.html.src)
+    .pipe(replace('%%content%%', '@@include("./partials/pardot-form.html")'))
     .pipe(fileinclude({
         prefix: '@@',
         basepath: '@file'

@@ -20,6 +20,7 @@
     "gulp-image": "^5.1.0",
     "gulp-inline-source": "^4.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-webp": "^4.0.1",
